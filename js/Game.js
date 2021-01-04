@@ -1,21 +1,20 @@
 AFRAME.registerComponent("game-play", {
     schema: {
-      elementId: { type: "string", default: "#coin" },      
+      elementId: { type: "string", default: "#coin1" },      
     },
     
     update: function() {
       this.isCollided(this.data.elementId);
     },
   
-    isCollided: function(elemntId) {
-      const element = document.querySelector(elemntId);
+    isCollided: function(elementId) {
+      const element = document.querySelector(elementId);
       element.addEventListener("collide", e => {
-        if (elemntId.includes("#coin")) {
-          element.setAttribute("visible", false);
-          console.log("ring collision");
+        if (elementId.includes("#coin")) {          
+          console.log("coin collision");
           
         }
-        if(elementId.includes("#fish")){
+        else if(elementId.includes("#fish")){
           console.log("fish collision");
         }         
       });
